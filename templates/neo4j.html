@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script type="text/javascript">
+		$(function() {
+    			$('#btnShow').click(function() {
+
+        			$.ajax({
+            			url: '/show',
+            			data: $('form').serialize(),
+            			type: 'POST',
+            			success: function(response) {
+                		console.log(response);
+            			},
+            			error: function(error) {
+                		console.log(error);
+            			}
+        		});
+    			});
+		});	
+	</script>
+
+</head>
+
+<body background="../static/main.jpg" style="background-repeat:no-repeat;background-size: 100% 100%;background-attachment: fixed;">   
+
+    <div id="menu">
+        <ul>
+            <li class="neo4j"><img src="../static/2.jpg"  id="logo"><img src="../static/4.jpg"  id="logo2" height="60" width="80"></li>
+            <li><a href="neo4j.html" target="_self" style="font-size:40px" >首页</a></li>
+        </ul>
+    </div>
+
+   
+    <div class="center">
+        <div>
+            <a>欢迎来到我们的数据库<span style="color:darkorange"><img src="../static/3.jpg"  id="logo1"></span></a><br>
+        </div>
+        <div>
+            <form name="moive" method="POST">
+                <a style="font-size:20px">选择查询条件</a>
+                <select id="query-select" style="font-size:20px" name="query-select">
+                    <option value="user-id">用户ID</option>
+                    <option value="key-words">关键字</option>
+                    <option value="style">风格</option>
+                </select><br>
+
+                <a style="font-size:20px">输入查询条件</a>
+                <input type="text" id="search-condition" name="search-condition"><br>
+                <button type="submit" id="#btnShow">提交</button>
+                <button type="reset">重置</button>
+                
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

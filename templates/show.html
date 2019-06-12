@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <script type="text/javascript">
+    	
+    </script>
+
+</head>
+
+<body  background="../static/main.jpg" style="background-repeat:no-repeat;background-size: 100% 100%;background-attachment: fixed;text-align: center">
+    <div id="menu">
+        <ul>
+            <li class="neo4j"><img src="../static/2.jpg"  id="logo"><img src="../static/4.jpg"  id="logo2" height="60" width="80"></li>
+            <li><a href="neo4j.html" target="_self" style="font-size:40px">返回首页</a></li>
+        </ul>
+    </div>
+
+
+    <div style="overflow-y:auto;text-align: center;" class="show">
+        <table id="moive" class="table" border="1" style="margin: auto;">
+            <thead>
+                <tr>
+                    <th class="th">电影名称</th>
+                    <th class="th">评分</th>
+                    <th class="th" colspan="3">前三个标签</th>
+                    <th class="th">关联度评分</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in list %}
+                <tr>
+                	<td>{{item.movieTitle}}</td>
+                	<td>{{item.rating}}</td>
+                	{% for tag in item.tags %}
+                	<td>{{tag}}</td>
+                	{% endfor %}
+                	<td>{{item.relevant}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+  
+</body>
